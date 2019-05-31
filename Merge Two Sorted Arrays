@@ -1,0 +1,82 @@
+//Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 1 at Solution.mergeSortedArray(Solution.java:13) at Main.main(Main.java:44)
+public class Solution {
+    /**
+     * @param A: sorted integer array A
+     * @param B: sorted integer array B
+     * @return: A new sorted integer array
+     */
+    public int[] mergeSortedArray(int[] A, int[] B) {
+        int indexA=0;
+        int indexB=0;
+        int indexC=0;
+        int []merge =new int[A.length+B.length];
+        while(indexA<A.length||indexB<B.length){
+            if(A[indexA]<=B[indexB]){
+                merge[indexC]=A[indexA];
+                indexA++;
+                indexC++;
+            }
+            else{
+                merge[indexC]=B[indexB];
+                indexB++;
+                indexC++;
+            }
+        }
+        return merge;
+        
+    }
+}
+
+//Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 2 at Solution.mergeSortedArray(Solution.java:16) at Main.main(Main.java:44)
+public class Solution {
+    /**
+     * @param A: sorted integer array A
+     * @param B: sorted integer array B
+     * @return: A new sorted integer array
+     */
+    public int[] mergeSortedArray(int[] A, int[] B) {
+        int indexA=0;
+        int indexB=0;
+        int indexC=-1;
+        int []merge =new int[A.length+B.length];
+  
+        if(A.length<=B.length){
+            while(indexA<A.length){
+                indexC++;
+                if(A[indexA]<=B[indexB]){
+                merge[indexC]=A[indexA];
+                indexA++;
+                }
+                else{
+                merge[indexC]=B[indexB];
+                indexB++;
+                }
+            }
+            for(indexB=indexB;indexB<B.length;indexB++){
+                indexC++;
+                merge[indexC]=B[indexB];
+            }
+        }
+        else{
+            while(indexB<B.length){
+                indexC++;
+                if(B[indexB]<=A[indexA]){
+                    merge[indexC]=B[indexB];
+                    indexB++;
+                }
+                else{
+                    merge[indexC]=B[indexA];
+                    indexA++;
+                }
+                
+            }
+            for(indexA=indexA;indexA<A.length;indexA++){
+                indexC++;
+                merge[indexC]=A[indexA];
+            }
+            
+        }
+        return merge;
+        
+    }
+}

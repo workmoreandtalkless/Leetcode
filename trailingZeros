@@ -1,3 +1,4 @@
+//ran too much time than expected.
 public class Solution {
     /*
      * @param n: An integer
@@ -20,4 +21,33 @@ public class Solution {
         
     }
 }
-//ran too much time than expected.
+
+// result=n/5+n/25+n/125+n/625+n/...
+public class Solution {
+    /*
+     * @param n: An integer
+     * @return: An integer, denote the number of trailing zeros in n!
+     */
+    public long trailingZeros(long n) {
+      long res=0;
+      while(n>0){
+          res+=n/5;
+          n/=5;
+      }
+      return res;
+      
+        
+    }
+}// total runtime 1157ms
+
+// use recursive
+public class Solution {
+    /*
+     * @param n: An integer
+     * @return: An integer, denote the number of trailing zeros in n!
+     */
+    public long trailingZeros(long n) {
+   return n == 0 ? 0 : n / 5 + trailingZeros(n / 5);
+        
+    }
+}total runtime 762ms;

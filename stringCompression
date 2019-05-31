@@ -20,7 +20,7 @@ public class Solution {
             }
          }
          
-         return comp;
+        return comp.length()<originalString.length() ? comp:originalString ;// don't forget what we want to do , we want comprass the string. abc should be abc ,not a1b1c1.
              
          
     }

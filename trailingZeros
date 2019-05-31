@@ -1,0 +1,22 @@
+public class Solution {
+    /*
+     * @param n: An integer
+     * @return: An integer, denote the number of trailing zeros in n!
+     */
+    public long trailingZeros(long n) {
+        long result=1;
+        
+        while(n>0){
+        result*=n;
+        n-=1;
+        }
+        long count=0;
+        
+        while(result%10==0){
+            count++;
+            result/=10;
+        }
+        return count;
+        
+    }
+}

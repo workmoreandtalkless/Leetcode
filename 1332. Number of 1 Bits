@@ -1,0 +1,57 @@
+1332. Number of 1 Bits
+中文English
+Write a function that takes an unsigned integer and returns the number of ’1' bits it has (also known as the Hamming weight).
+
+Example
+Example 1
+
+Input：n = 11
+Output：3
+Explanation：11(10) = 1011(2), so return 3
+Example 2
+
+Input：n = 7
+Output：3
+Explanation：7(10) = 111(2), so return 3
+
+//bad answer ,but I don't know where is wrong.
+
+public class Solution {
+    /**
+     * @param n: an unsigned integer
+     * @return: the number of â€™1' bits
+     */
+    public int hammingWeight(int n) {
+         int[] arr=new int[100];
+         int count=0;
+         int countnum=0;
+         for(int i=0;i<arr.length;i++){
+            if(n>1){
+             arr[i]=n%2;
+             count++;
+             n/=2;
+                System.out.println("n :  "+n);
+            }
+            if(n==1){
+                arr[i]=1;
+                count++;
+                break;
+            }
+         }
+         for(int i=count-1;i>=0;i--){
+             System.out.print(arr[i]);
+             
+             if(arr[i]==1)
+             countnum++;
+             
+         }
+         return countnum;
+    }
+}
+
+//right answer
+while(n>0){
+a=n%2;
+if(a==1)
+count++;
+n/=2;}

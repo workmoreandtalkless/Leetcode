@@ -28,7 +28,36 @@ The range of node's value is in the range of 32-bit signed integer.
  *     }
  * }
  */
-
+public class Solution {
+    /**
+     * @param root: the binary tree of the  root
+     * @return: return a list of double
+     */
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> list=new ArrayList<>();
+        Queue<TreeNode> queue= new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+        double sum=0;
+        double count=0;
+        TreeNode temp_node;
+        Queue<TreeNode> temp=new LinkedList<>();
+        while(!queue.isEmpty()){
+            temp_node=queue.poll();
+            sum+=temp_node.val;
+            count++;
+            if(temp_node.left!=null)
+            temp.offer(temp_node.left);
+            if(temp_node.right!=null)
+            temp.offer(temp_node.right);
+            }
+            queue=temp;
+            list.add(sum/count);
+        }
+        return list;
+    }
+}
+//
 public class Solution {
     /**
      * @param root: the binary tree of the  root

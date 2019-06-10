@@ -1,0 +1,29 @@
+Approach 1: Brute Force 
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode cA=headA;
+        ListNode cB=headB;
+        while(cA!=null){
+            cB=headB;
+            while(cB!=null){
+                if(cA==cB) return cB;
+                else {
+                    cB=cB.next;
+                }
+            }
+            cA=cA.next;
+        }
+        return null;
+    }
+}
